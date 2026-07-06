@@ -1,0 +1,5 @@
+redis/
+spoq2/
+spoq2-artifacts/
+*.sh
+*.txt

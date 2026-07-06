@@ -1,0 +1,12 @@
+{
+  "name": "spoq2 devcontainer",
+  "image": "spoq2:builder",
+
+  "remoteUser": "root",
+
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  }
+}
