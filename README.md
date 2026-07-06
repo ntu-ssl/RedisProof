@@ -68,7 +68,7 @@ These functions are treated as trusted primitives. There specification is hand-w
 Layer structure of dict.c, leftmost layer is the trusted primitives
 (This layer structure is automatically generated, the real layer structure have a few functions manually moved within the middle layers to better match their functionality)
 The blue nodes meant to represent top level API functions, i.e., functions that are used by other c files inside redis repository. These nodes are forced to be as right(high in terms of layer heirachy) as possible.
-![image](https://hackmd.io/_uploads/ryfw40_Xfx.png)
+<img width="1345" height="1151" alt="upload_96466392b1f0befd22c4a1bed84528d5" src="https://github.com/user-attachments/assets/706fcd49-35c7-4f30-9e26-809d90373741" />
 
 # Modules
 Currently focusing on dictionary module
