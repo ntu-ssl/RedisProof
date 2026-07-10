@@ -72,8 +72,8 @@ The blue nodes meant to represent top level API functions, i.e., functions that 
 <img width="1345" height="1151" alt="upload_96466392b1f0befd22c4a1bed84528d5" src="https://github.com/user-attachments/assets/706fcd49-35c7-4f30-9e26-809d90373741" />
 
 ## Modules
-Currently focusing on dictionary module
-TODO: organize the c files into multiple modules
+Currently focusing on dictionary module  
+$${\color{red}TODO: \space \text{organize the c files into multiple modules}}$$
 
 ## Ranking Functions
 ### dict.c
@@ -114,7 +114,9 @@ translates to
 ```
 
 - Layers
-    Seperate the functions into seperate layers, where each layer only calls functions from previous layers. Recursive functions can be somewhat changed to fit this scheme by either rewriting it as a loop or seperating them into different functions for each call depth if the maximum call depth is known. This step can be done automatically (TODO add the auto layer script into repo).
+    Seperate the functions into seperate layers, where each layer only calls functions from previous layers. Recursive functions can be somewhat changed to fit this scheme by either rewriting it as a loop or seperating them into different functions for each call depth if the maximum call depth is known. This step can be done automatically  
+ that will occur duting compilation  
+    $${\color{red}TODO: \space \text{add the auto layer script into repo}}$$
     
 - Generate the proof spec
     Compile source c code into a `.bc` file and reference it in `proof.v`
@@ -127,8 +129,8 @@ run spoq with `--llvm` option enabled and you should see a folder created named 
     1. Use Hint InitRely to auto generate rely conditions for specs, this both eliminates the need to manually insert rely statements and can also help spoq simplify specifications.
 
 # Debugging Spoq Errors
-
-TODO: list potential stuff/hurdles that will occur duting compilation (basically everything I've seen up until now)  
+$${\color{red}TODO: \space \text{Add (more) potential stuff/hurdles that will occur during compilation whenever it comes up in the future}}$$  
+$${\color{red}TODO: \space \text{Add descriptions to each item and how to resolve them}}$$  
 function pointers  
 ranking function  
 unknown symbol  
