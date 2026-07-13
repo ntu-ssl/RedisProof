@@ -5,3 +5,12 @@ spoq2-artifacts/
 *.txt
 RedisProof/Unfinished
 RedisProof/ProofGen
+
+.CachedSpec
+*.aux
+.lia.CachedSpec
+.nia.cache
+*.vo
+*.vok
+*.vos
+*.glob
