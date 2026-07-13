@@ -1,0 +1,199 @@
+DIGEST b8ac7ae1f3626713b5f8fe8859cbf8a7
+FRedisProof.Finished.ProofLoop.Layer1.Spec
+R15:24 RedisProof.Finished.ProofLoop.CommonDeps <> <> lib
+R42:50 RedisProof.Finished.ProofLoop.DataTypes <> <> lib
+R68:77 RedisProof.Finished.ProofLoop.GlobalDefs <> <> lib
+R169:182 Coq.Program.Wf <> <> lib
+R200:216 Coq.ZArith.ZArith <> <> lib
+sec 228:238 <> Layer1_Spec
+R263:272 LayerSem.IRSem <> IntPtrCast class
+binder 254:260 <> int_ptr:1
+def 290:303 <> _dictFree_spec
+R311:313 LayerSem.IR <> Ptr rec
+binder 306:308 <> ptr:2
+R321:325 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 317:318 <> st:3
+R331:336 Coq.Init.Datatypes <> option ind
+R338:342 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R356:356 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R368:373 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R382:382 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R362:366 LayerSem.IR <> pbase proj
+R357:359 RedisProof.Finished.ProofLoop.Layer1.Spec <> ptr:2 var
+R486:489 Coq.Init.Datatypes <> Some constr
+R491:492 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:3 var
+R395:398 Coq.Init.Datatypes <> Some constr
+R403:423 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[memory].[data]'_':<'_x not
+R472:472 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[memory].[data]'_':<'_x not
+R401:402 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:3 var
+R424:424 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R445:449 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R463:467 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R455:461 LayerSem.IR <> poffset proj
+R450:452 RedisProof.Finished.ProofLoop.Layer1.Spec <> ptr:2 var
+R468:471 Coq.Init.Datatypes <> None constr
+R440:443 RedisProof.Finished.ProofLoop.DataTypes <> data proj
+R430:435 RedisProof.Finished.ProofLoop.DataTypes <> memory proj
+R426:427 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:3 var
+def 510:524 <> _dictAlloc_spec
+R533:533 Coq.Numbers.BinNums <> Z ind
+binder 527:530 <> size:4
+R541:545 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 537:538 <> st:5
+R551:556 Coq.Init.Datatypes <> option ind
+R562:564 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R559:561 LayerSem.IR <> Ptr rec
+R565:569 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R610:615 RedisProof.Finished.ProofLoop.DataTypes <> offset proj
+R600:605 RedisProof.Finished.ProofLoop.DataTypes <> memory proj
+R596:597 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:5 var
+binder 584:589 <> offset:6
+R627:630 Coq.Init.Datatypes <> Some constr
+R632:633 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R655:658 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R700:701 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R634:638 LayerSem.IR <> mkPtr constr
+R649:654 RedisProof.Finished.ProofLoop.Layer1.Spec <> offset:6 var
+R661:683 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[memory].[offset]'_':<'_x not
+R699:699 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[memory].[offset]'_':<'_x not
+R659:660 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:5 var
+R690:693 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R698:698 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R684:689 RedisProof.Finished.ProofLoop.Layer1.Spec <> offset:6 var
+R694:697 RedisProof.Finished.ProofLoop.Layer1.Spec <> size:4 var
+def 719:733 <> _dictReset_spec
+R740:742 LayerSem.IR <> Ptr rec
+binder 736:737 <> ht:7
+R750:754 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 746:747 <> st:8
+R760:765 Coq.Init.Datatypes <> option ind
+R767:771 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R785:785 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R796:801 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R810:810 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R790:794 LayerSem.IR <> pbase proj
+R786:787 RedisProof.Finished.ProofLoop.Layer1.Spec <> ht:7 var
+R1084:1084 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R1095:1100 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R1118:1118 LayerSem.Libs.Coqlib <> ::string_scope:x_'=s'_x not
+R1089:1093 LayerSem.IR <> pbase proj
+R1085:1086 RedisProof.Finished.ProofLoop.Layer1.Spec <> ht:7 var
+R1179:1182 Coq.Init.Datatypes <> Some constr
+R1184:1189 RedisProof.Finished.ProofLoop.GlobalDefs <> bad_st defax
+R1133:1136 Coq.Init.Datatypes <> Some constr
+R1141:1162 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[dict_can_resize]'_':<'_x not
+R1139:1140 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:8 var
+R831:834 Coq.Init.Datatypes <> Some constr
+R839:867 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[memory].[data]'_':<'_x not
+R1058:1058 RedisProof.Finished.ProofLoop.DataTypes <> :::x_'.[memory].[data]'_':<'_x not
+R837:838 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:8 var
+R868:868 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R999:1013 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R1035:1050 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R1057:1057 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R1014:1014 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R1027:1030 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R1019:1025 LayerSem.IR <> poffset proj
+R1015:1016 RedisProof.Finished.ProofLoop.Layer1.Spec <> ht:7 var
+R1051:1054 Coq.Init.Datatypes <> Some constr
+R869:869 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R960:964 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R986:991 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R998:998 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R965:965 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R978:981 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R970:976 LayerSem.IR <> poffset proj
+R966:967 RedisProof.Finished.ProofLoop.Layer1.Spec <> ht:7 var
+R992:995 Coq.Init.Datatypes <> Some constr
+R870:870 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R922:926 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R947:952 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R959:959 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R927:927 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R940:943 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R932:938 LayerSem.IR <> poffset proj
+R928:929 RedisProof.Finished.ProofLoop.Layer1.Spec <> ht:7 var
+R953:956 Coq.Init.Datatypes <> Some constr
+R871:871 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R892:896 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R909:914 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R921:921 LayerSem.Libs.Notations <> :::x_'#'_x_'=='_x not
+R901:907 LayerSem.IR <> poffset proj
+R897:898 RedisProof.Finished.ProofLoop.Layer1.Spec <> ht:7 var
+R915:918 Coq.Init.Datatypes <> Some constr
+R887:890 RedisProof.Finished.ProofLoop.DataTypes <> data proj
+R877:882 RedisProof.Finished.ProofLoop.DataTypes <> memory proj
+R873:874 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:8 var
+def 1503:1523 <> _dictNextPower_loop_0
+R1567:1567 Coq.Numbers.BinNums <> Z ind
+binder 1534:1537 <> size:9
+binder 1539:1541 <> i_0:10
+binder 1543:1552 <> arg_dummy0:11
+binder 1554:1563 <> arg_dummy1:12
+R1584:1588 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 1579:1580 <> st:13
+R1631:1636 Coq.Init.Datatypes <> option ind
+R1652:1654 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1648:1650 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1644:1646 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1640:1642 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1639:1639 Coq.Numbers.BinNums <> Z ind
+R1643:1643 Coq.Numbers.BinNums <> Z ind
+R1647:1647 Coq.Numbers.BinNums <> Z ind
+R1651:1651 Coq.Numbers.BinNums <> Z ind
+R1655:1659 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R1603:1610 Coq.ZArith.BinInt Z to_nat def
+R1617:1619 Coq.ZArith.BinInt <> ::Z_scope:x_'-'_x not
+R1671:1677 RedisProof.Finished.ProofLoop.GlobalDefs <> :::'relyp'_x_';'_x not
+R1685:1693 RedisProof.Finished.ProofLoop.GlobalDefs <> :::'relyp'_x_';'_x not
+R1681:1683 Coq.ZArith.BinInt <> ::Z_scope:x_'>'_x not
+R1703:1707 RedisProof.Finished.ProofLoop.GlobalDefs <> ::Z_scope:x_'>=d'_x not
+R1726:1729 Coq.Init.Specif <> left constr
+R1738:1741 Coq.Init.Datatypes <> Some constr
+R1743:1743 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1748:1749 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1753:1754 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1758:1759 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1761:1762 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1765:1765 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1775:1779 Coq.Init.Specif <> right constr
+R1788:1808 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictNextPower_loop_0:14 def
+R1819:1821 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+def 2070:2088 <> _dictNextPower_spec
+R2097:2097 Coq.Numbers.BinNums <> Z ind
+binder 2091:2094 <> size:15
+R2105:2109 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 2101:2102 <> st:16
+R2115:2120 Coq.Init.Datatypes <> option ind
+R2124:2126 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R2123:2123 Coq.Numbers.BinNums <> Z ind
+R2127:2131 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R2150:2154 Coq.ZArith.BinInt <> ::Z_scope:x_'>=?'_x not
+R2146:2149 RedisProof.Finished.ProofLoop.Layer1.Spec <> size:15 var
+R2245:2265 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictNextPower_loop_0 def
+R2278:2279 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:16 var
+R2267:2270 RedisProof.Finished.ProofLoop.Layer1.Spec <> size:15 var
+R2297:2300 Coq.Init.Datatypes <> Some constr
+R2302:2302 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2313:2314 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2324:2325 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2329:2330 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2334:2335 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2340:2340 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2347:2350 Coq.Init.Datatypes <> Some constr
+R2352:2352 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2356:2357 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2362:2362 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2373:2376 Coq.Init.Datatypes <> None constr
+R2381:2384 Coq.Init.Datatypes <> None constr
+R2188:2191 Coq.Init.Datatypes <> Some constr
+R2193:2193 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2213:2214 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2217:2217 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2215:2216 RedisProof.Finished.ProofLoop.Layer1.Spec <> st:16 var
+R2403:2413 RedisProof.Finished.ProofLoop.Layer1.Spec Layer1_Spec <> sec
+R2439:2452 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictFree_spec def
+R2483:2497 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictAlloc_spec def
+R2528:2542 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictReset_spec def
+R2573:2593 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictNextPower_loop_0 def
+R2624:2642 RedisProof.Finished.ProofLoop.Layer1.Spec <> _dictNextPower_spec def

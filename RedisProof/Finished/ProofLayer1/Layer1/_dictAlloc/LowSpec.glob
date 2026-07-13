@@ -1,0 +1,53 @@
+DIGEST 2df6c6740b75f4eaeb5e36e6be84b57d
+FRedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec
+R15:25 RedisProof.Finished.ProofLoop.Bottom.Spec <> <> lib
+R43:52 RedisProof.Finished.ProofLoop.CommonDeps <> <> lib
+R70:78 RedisProof.Finished.ProofLoop.DataTypes <> <> lib
+R96:105 RedisProof.Finished.ProofLoop.GlobalDefs <> <> lib
+sec 175:199 <> Layer1__dictAlloc_LowSpec
+R224:233 LayerSem.IRSem <> IntPtrCast class
+binder 215:221 <> int_ptr:1
+def 251:269 <> _dictAlloc_spec_low
+R278:278 Coq.Numbers.BinNums <> Z ind
+binder 272:275 <> size:2
+R286:290 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 282:283 <> st:3
+R296:301 Coq.Init.Datatypes <> option ind
+R307:309 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R304:306 LayerSem.IR <> Ptr rec
+R310:314 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R325:329 LayerSem.Libs.Notations <> :::'when'_x_','_x_'=='_x_';'_x not
+R334:335 LayerSem.Libs.Notations <> :::'when'_x_','_x_'=='_x_';'_x not
+R340:345 LayerSem.Libs.Notations <> :::'when'_x_','_x_'=='_x_';'_x not
+R366:373 LayerSem.Libs.Notations <> :::'when'_x_','_x_'=='_x_';'_x not
+R346:357 RedisProof.Finished.ProofLoop.Bottom.Spec <> zmalloc_spec def
+R359:362 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> size:2 var
+R364:365 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> st:3 var
+binder 330:333 <> call:4
+binder 336:339 <> st_0:5
+R378:384 RedisProof.Finished.ProofLoop.GlobalDefs <> ptr_eqb def
+R386:389 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> call:4 var
+R392:396 LayerSem.IR <> mkPtr constr
+R536:539 Coq.Init.Datatypes <> Some constr
+R541:541 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R546:547 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R552:552 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R542:545 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> call:4 var
+R548:551 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> st_0:5 var
+R426:430 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R435:440 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R495:505 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R523:523 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R441:455 RedisProof.Finished.ProofLoop.Bottom.Spec <> _dictPanic_spec def
+R458:467 RedisProof.Finished.ProofLoop.GlobalDefs <> ptr_offset def
+R470:474 LayerSem.IR <> mkPtr constr
+R491:494 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> st_0:5 var
+binder 431:434 <> st_1:6
+R506:509 Coq.Init.Datatypes <> Some constr
+R511:511 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R516:517 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R522:522 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R512:515 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> call:4 var
+R518:521 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> st_1:6 var
+R561:585 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec Layer1__dictAlloc_LowSpec <> sec
+R611:629 RedisProof.Finished.ProofLoop.Layer1._dictAlloc.LowSpec <> _dictAlloc_spec_low def

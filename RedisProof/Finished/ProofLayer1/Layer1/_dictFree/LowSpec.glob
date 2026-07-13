@@ -1,0 +1,28 @@
+DIGEST d7968799c636b96fa0383ba505824f28
+FRedisProof.Finished.ProofLoop.Layer1._dictFree.LowSpec
+R15:25 RedisProof.Finished.ProofLoop.Bottom.Spec <> <> lib
+R43:52 RedisProof.Finished.ProofLoop.CommonDeps <> <> lib
+R70:78 RedisProof.Finished.ProofLoop.DataTypes <> <> lib
+R96:105 RedisProof.Finished.ProofLoop.GlobalDefs <> <> lib
+sec 175:198 <> Layer1__dictFree_LowSpec
+R223:232 LayerSem.IRSem <> IntPtrCast class
+binder 214:220 <> int_ptr:1
+def 250:267 <> _dictFree_spec_low
+R275:277 LayerSem.IR <> Ptr rec
+binder 270:272 <> ptr:2
+R285:289 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 281:282 <> st:3
+R295:300 Coq.Init.Datatypes <> option ind
+R302:306 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+R316:320 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R325:330 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R348:356 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R366:366 LayerSem.Libs.Notations <> :::'when'_x_'=='_x_';'_x not
+R331:340 RedisProof.Finished.ProofLoop.Bottom.Spec <> zfree_spec def
+R342:344 RedisProof.Finished.ProofLoop.Layer1._dictFree.LowSpec <> ptr:2 var
+R346:347 RedisProof.Finished.ProofLoop.Layer1._dictFree.LowSpec <> st:3 var
+binder 321:324 <> st_0:4
+R357:360 Coq.Init.Datatypes <> Some constr
+R362:365 RedisProof.Finished.ProofLoop.Layer1._dictFree.LowSpec <> st_0:4 var
+R374:397 RedisProof.Finished.ProofLoop.Layer1._dictFree.LowSpec Layer1__dictFree_LowSpec <> sec
+R423:440 RedisProof.Finished.ProofLoop.Layer1._dictFree.LowSpec <> _dictFree_spec_low def

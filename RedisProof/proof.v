@@ -129,14 +129,17 @@ Section Layer1.
         "_dictReset" ::
         "_dictNextPower" ::
         (* functions for db struct *)
-        "dictIntHashFunction" ::
+        (* "dictIntHashFunction" ::
         "dictIdentityHashFunction" ::
-        "dictGenHashFunction" ::
+        "dictGenHashFunction" :: *)
         nil.
+
+    (* Definition _dictNextPower_loop_0_rank (v_i_0: Z) (v_size: Z) : Z :=
+        v_size - v_i_0. *)
 
 End Layer1.
 
-Section Layer2.
+(* Section Layer2.
 
     Definition LAYER_DATA := RData.
     Definition LAYER_PRIMS: list string :=
@@ -182,7 +185,7 @@ Section Layer4.
     Hint InitRely _dictKeyIndex (d.(pbase) = "memory").
     Hint InitRely _dictRehashStep (d.(pbase) = "memory").
 
-End Layer4.
+End Layer4. *)
 
 (* Section Layer5.
 

@@ -1,0 +1,12 @@
+DIGEST 3704879a6455fab8aa8b78a50dac3c1c
+FRedisProof.Finished.ProofLoop.Layer1.RefineRel
+R15:24 RedisProof.Finished.ProofLoop.CommonDeps <> <> lib
+R42:50 RedisProof.Finished.ProofLoop.DataTypes <> <> lib
+def 65:70 <> refrel
+R78:82 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 73:75 <> hst:1
+R91:95 RedisProof.Finished.ProofLoop.DataTypes <> RData rec
+binder 86:88 <> lst:2
+R111:113 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R108:110 RedisProof.Finished.ProofLoop.Layer1.RefineRel <> hst:1 var
+R114:116 RedisProof.Finished.ProofLoop.Layer1.RefineRel <> lst:2 var
