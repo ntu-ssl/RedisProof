@@ -93,9 +93,48 @@ $${\color{red}TODO: \space \text{organize the c files into multiple modules}}$$
     potential to use prng to generate a pseudo random delay here but it'll make the loop termination proof unecessarily harder
 
 ## Progress
-Total: ~20000 Loc
-- dict.c/zmalloc.c: 835 Loc
-- others: X
+Total loc: 17443
+Total functions: 613
+- redis-cli.c
+    loc: 517  | functions: 17
+- linenoise.c
+    loc: 472  | functions: 14
+- ae.c
+    loc: 391  | functions: 16
+- pqsort.c
+    loc: 198  | functions: 4
+- anet.c
+    loc: 271  | functions: 13
+- zmalloc.c
+    loc: 159  | functions: 7 (current effort)
+- adlist.c
+    loc: 297  | functions: 13
+- dict.c
+    loc: 730  | functions: 42 (current effort)
+- lzf_d.c
+    loc: 151  | functions: 1
+- sds.c
+    loc: 449  | functions: 24
+- redis.c
+    loc: 10987| functions: 377
+- ae_kqueue.c
+    loc: 94   | functions: 6
+- ae_epoll.c
+    loc: 92   | functions: 6
+- zipmap.c
+    loc: 457  | functions: 18
+- lzf_c.c
+    loc: 296  | functions: 1
+- redis-check-dump.c
+    loc: 681  | functions: 20
+- redis-benchmark.c
+    loc: 666  | functions: 16
+- ae_select.c
+    loc: 73   | functions: 6
+- redis-check-aof.c
+    loc: 186  | functions: 7
+- sha1.c
+    loc: 276  | functions: 5
 
 # Steps to Writing a Proof
 - Create the abstract machine model
