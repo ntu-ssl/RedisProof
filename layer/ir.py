@@ -63,10 +63,7 @@ def parse_llvm_ir(file_path, bot_fns=[], top_fns=[]):
         for cfn in call_graph[fn]:
             # Detect loop
             if cfn in trace:
-                return 10000
-                print("loop detected", " -> ".join(trace + [cfn]))
-                return 
-                # raise ValueError()
+                raise ValueError("loop detected", " -> ".join(trace + [cfn]))
             trace.append(cfn)
 
             # Remove targets
@@ -99,16 +96,11 @@ def parse_llvm_ir(file_path, bot_fns=[], top_fns=[]):
         trace = [fn]
         calculate_layer_recur(fn, trace)
 
-    print(call_graph)
-    exit(1)
-    for k, v in layer_data.items():
-        print(k, v)
-
     # Move to top
     n = max(layer_data.values())
-    # for fn in top_fns:
-    #     if fn in layer_data:
-    #         move_to_top_recur(fn, n)
+    for fn in top_fns:
+        if fn in layer_data:
+            move_to_top_recur(fn, n)
 
     return call_graph, layer_data, external_layer
 
@@ -120,7 +112,6 @@ def visualize_graph(call_graph, layer_data, top_fns):
     # Add node
     layer_count = defaultdict(int)
     for fn, n in layer_data.items():
-        print(fn)
         G.add_node(fn, pos=(n, layer_count[n]))
         layer_count[n] += 1
 
@@ -156,7 +147,7 @@ def write_layer(f, proj, name, prims):
 
 
 if __name__ == "__main__":
-    file_path = "RedisFull.ll"
+    file_path = "Redis.ll"
     bot_fns = [
         "zmalloc",
         "zfree",
@@ -187,7 +178,6 @@ if __name__ == "__main__":
     ]
 
     call_graph, layer_data, external_fns = parse_llvm_ir(file_path, bot_fns, top_fns)
-    print(layer_data)
     external_fns = []
 
     visualize_graph(call_graph, layer_data, top_fns)
