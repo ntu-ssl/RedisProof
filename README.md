@@ -4,8 +4,8 @@ I'll assume you have spoq compiled, (if not, there's a binary ./spoq you can use
 
 - Compile Redis
 ```shell
-# Clone redis and compile custom Redis.c
-git clone https://github.com/redis/redis.git
+# Clone redis v2.0.0 and compile custom Redis.c
+git clone --branch v2.0.0 --single-branch https://github.com/redis/redis.git
 cp RedisProof/Redis.c redis
 cd redis
 
@@ -155,7 +155,6 @@ translates to
 - Layers
     Seperate the functions into seperate layers, where each layer only calls functions from previous layers. Recursive functions can be somewhat changed to fit this scheme by either rewriting it as a loop or seperating them into different functions for each call depth if the maximum call depth is known. This step can be done automatically  
  that will occur duting compilation  
-    $${\color{red}TODO: \space \text{add the auto layer script into repo}}$$
     
 - Generate the proof spec
     Compile source c code into a `.bc` file and reference it in `proof.v`
@@ -169,9 +168,13 @@ run spoq with `--llvm` option enabled and you should see a folder created named 
 
 # Debugging Spoq Errors
 $${\color{red}TODO: \space \text{Add (more) potential stuff/hurdles that will occur during compilation whenever it comes up in the future}}$$  
-$${\color{red}TODO: \space \text{Add descriptions to each item and how to resolve them}}$$  
-function pointers  
-ranking function  
-unknown symbol  
-unknown function (inspect llvm)  
-right now there's a bug within spoq that causes error when it sees a while loop inside a for loop; need to determine the source of this bug
+- function pointers  
+    functions that uses function pointers will generate an error like
+    ```
+    what():  (z3_eval) Unknown symbol: v_12_1_fptr_dictRehash_spec
+    ```
+    inspect the generated spec for the function (in this case it's dictRehash), and manually add the function pointer definition (v_12_1_fptr_dictRehash_spec) into proof.v
+- ranking function  
+    What's supposed to happen is that you need to write a {function_name}_loop_rank definition and spoq will automatically insert it into the generated spec, but right now this isn't working for some reason so you need to use Program Fixpoint and Measure (see RedisProof/Finished/ProofLayer1/_dictNextPower for more info) to make Coq accept the specification.
+- nested loop bug
+    right now there's a bug within spoq that causes variable name error when it sees a while loop inside a for loop; need to determine the source of this bug
