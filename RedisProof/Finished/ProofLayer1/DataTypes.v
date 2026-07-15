@@ -49,15 +49,3 @@ Notation "_a '.[memory].[offset]' ':<' _b" := (update_RData_memory_offset _a _b)
 Definition update_RData_memory_data(_a: RData) _b :=
   update_RData_memory _a ((_a.(memory)).[data] :< _b).
 Notation "_a '.[memory].[data]' ':<' _b" := (update_RData_memory_data _a _b) (at level 1).
-
-#[global] Hint Unfold
-  update_Memory_offset
-  update_Memory_data
-  update_RData_memory
-  update_RData_time
-  update_RData_dict_can_resize
-  update_RData_memory_offset
-  update_RData_memory_data
-  : update_RData.
-
-Ltac simpl_RData := autounfold with update_RData; simpl.

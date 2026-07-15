@@ -14,7 +14,6 @@ Definition int_to_ptr (v: Z) : Ptr :=
     ) else
     (mkPtr "null" 0).
 
-
 Definition ptr_to_int (p: Ptr) : Z :=
     if (p.(pbase) =s "null") then
         0
@@ -129,9 +128,9 @@ Section Layer1.
         "_dictReset" ::
         "_dictNextPower" ::
         (* functions for db struct *)
-        (* "dictIntHashFunction" ::
+        "dictIntHashFunction" ::
         "dictIdentityHashFunction" ::
-        "dictGenHashFunction" :: *)
+        "dictGenHashFunction" ::
         nil.
 
     (* Definition _dictNextPower_loop_0_rank (v_i_0: Z) (v_size: Z) : Z :=
@@ -139,7 +138,7 @@ Section Layer1.
 
 End Layer1.
 
-(* Section Layer2.
+Section Layer2.
 
     Definition LAYER_DATA := RData.
     Definition LAYER_PRIMS: list string :=
@@ -147,12 +146,12 @@ End Layer1.
         "_dictClear" ::
         "dictExpand" ::
         (* functions for db struct *)
-        "_dictStringCopyHTHashFunction" ::
+        (* "_dictStringCopyHTHashFunction" ::
         "_dictStringCopyHTKeyDup" ::
         "_dictStringKeyValCopyHTValDup" ::
         "_dictStringCopyHTKeyCompare" ::
         "_dictStringCopyHTKeyDestructor" ::
-        "_dictStringKeyValCopyHTValDestructor" ::
+        "_dictStringKeyValCopyHTValDestructor" :: *)
         nil.
 
     Hint InitRely _dictInit (d.(pbase) = "memory" /\ (type.(pbase) = "memory")).
@@ -174,11 +173,11 @@ Section Layer3.
 
 End Layer3.
 
-Section Layer4.
+(* Section Layer4.
 
     Definition LAYER_DATA := RData.
     Definition LAYER_PRIMS: list string :=
-        (* "_dictKeyIndex" :: *)
+        "_dictKeyIndex" ::
         "_dictRehashStep" ::
         nil.
 

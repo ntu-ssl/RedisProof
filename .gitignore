@@ -8,7 +8,7 @@ RedisProof/ProofGen
 
 .CachedSpec
 *.aux
-.lia.CachedSpec
+.lia.cache
 .nia.cache
 *.vo
 *.vok

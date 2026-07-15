@@ -44,7 +44,7 @@ Section Layer1_Spec.
         (st : RData)
   {measure (Z.to_nat (size - i_0))}
   : option (Z * Z * Z * Z * RData) :=
-      relyp (i_0 > 0);
+    relyp (i_0 > 0);
       match i_0 >=d size with
       | left _   => Some (size, i_0, i_0, 0, st)
       | right Hlt => _dictNextPower_loop_0 size (i_0 * 2) arg_dummy0 arg_dummy1 st

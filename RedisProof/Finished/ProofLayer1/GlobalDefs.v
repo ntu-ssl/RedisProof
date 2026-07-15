@@ -85,16 +85,6 @@ Section GlobalDefs.
 
 End GlobalDefs.
 
-Notation "x <=d y" := (Z_le_dec x y) (at level 70, no associativity) : Z_scope.
-Notation "x >=d y" := (Z_ge_dec x y) (at level 70, no associativity) : Z_scope.
-
-Notation "'relyp' P ; F" :=
-  (match prop P with
-   | left _  => F
-   | right _ => None
-   end)
-  (at level 200, P at level 100, F at level 200).
-
 #[global] Hint Unfold ptr_offset: spec.
 #[global] Hint Unfold bool_to_int: spec.
 #[global] Hint Unfold MEMORY_BASE: spec.
@@ -109,3 +99,26 @@ Notation "'relyp' P ; F" :=
 #[global] Hint Unfold store_RData: spec.
 #[global] Hint Unfold v_12_1_fptr_dictRehash_spec: spec.
 #[global] Hint Unfold v_1_1_fptr__dictKeyIndex_spec: spec.
+
+
+#[global] Hint Unfold
+  update_Memory_offset
+  update_Memory_data
+  update_RData_memory
+  update_RData_time
+  update_RData_dict_can_resize
+  update_RData_memory_offset
+  update_RData_memory_data
+  : update_RData.
+
+Ltac simpl_RData := autounfold with update_RData; simpl.
+
+Notation "x <=d y" := (Z_le_dec x y) (at level 70, no associativity) : Z_scope.
+Notation "x >=d y" := (Z_ge_dec x y) (at level 70, no associativity) : Z_scope.
+
+Notation "'relyp' P ; F" :=
+  (match prop P with
+   | left _  => F
+   | right _ => None
+   end)
+  (at level 200, P at level 100, F at level 200).

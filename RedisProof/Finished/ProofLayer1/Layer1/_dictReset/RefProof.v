@@ -26,7 +26,7 @@ Section DictPrim__dictReset_RefProof.
       intros; inv Hrel.
       autounfold with spec in *; autounfold with sem in *; simpl in *.
       destruct_spec Hspec; repeat (solve_refproof; repeat rewrite annotation_eq);
-        repeat eexists; try unfold refrel; simpl_RData; solve_equality.
+        repeat eexists; try unfold refrel; simpl_RData; solve_equality.   
     Qed.
 
 End DictPrim__dictReset_RefProof.

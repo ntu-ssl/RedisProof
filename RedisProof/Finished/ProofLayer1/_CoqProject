@@ -1,4 +1,4 @@
--R . RedisProof.Finished.ProofLoop
+-R . RedisProof.Finished.ProofLayer1
 
 ./CommonDeps.v
 Bottom/Layer.v
