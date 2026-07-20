@@ -79,6 +79,8 @@ $${\color{red}TODO: \space \text{organize the c files into multiple modules}}$$
 ### dict.c
 - `_dictNextPower` 
     log2 based ranking function, hard to reason with in proof, maybe find another way to represent it
+- `dictGenHashFunction`
+    simple while loop
 - `dictRehash` 
     potentially unbounded pointer based loop condition
 - `dictFind`

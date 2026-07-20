@@ -3,8 +3,10 @@ spoq2/
 spoq2-artifacts/
 *.sh
 *.txt
+*.bc
 RedisProof/Unfinished
 RedisProof/ProofGen
+RedisProof/Proof
 
 .CachedSpec
 *.aux
