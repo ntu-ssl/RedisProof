@@ -2,43 +2,45 @@ import os
 import re
 import networkx as nx
 import matplotlib.pyplot as plt
+from tree_sitter import Parser, Language
+import tree_sitter_c
+from collections import defaultdict
+
+parser = Parser()
+parser.language = Language(tree_sitter_c.language())
+
+def walk(node):
+    """DFS traversal of tree-sitter nodes."""
+    yield node
+    for child in node.children:
+        yield from walk(child)
 
 
-def extract_functions_and_calls(filepath):
-    """
-    Extract function definitions and function calls from a C file.
-    Returns:
-        functions: set of defined function names
-        calls: set of called function names
-    """
+def get_functions_and_calls(tree):
+    functions = []
+    calls = []
 
-    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-        code = f.read()
+    for node in walk(tree.root_node):
+        if node.type == "function_definition":
+            # Extract function name
+            func_name = None
+            declarator = node.child_by_field_name("declarator")
 
-    # Remove comments
-    code = re.sub(r"//.*?$|/\*.*?\*/", "", code, flags=re.MULTILINE | re.DOTALL)
+            if declarator:
+                for n in walk(declarator):
+                    if n.type == "identifier":
+                        func_name = n.text.decode()
+                        break
 
-    # Find function definitions
-    # Example:
-    # int foo(int x) {
-    # void bar() {
-    func_pattern = r"\b[a-zA-Z_]\w*\s+\**([a-zA-Z_]\w*)\s*\([^;]*\)\s*\{"
+            if func_name:
+                functions.append(func_name)
 
-    functions = set(re.findall(func_pattern, code))
-
-    # Find function calls
-    # Anything followed by '(' that isn't a control keyword
-    call_pattern = r"\b([a-zA-Z_]\w*)\s*\("
-
-    calls = set(re.findall(call_pattern, code))
-
-    keywords = {
-        "if", "for", "while", "switch",
-        "return", "sizeof", "typedef",
-        "struct"
-    }
-
-    calls -= keywords
+            # Extract calls inside this function
+            for child in walk(node):
+                if child.type == "call_expression":
+                    fn = child.child_by_field_name("function")
+                    if fn:
+                        calls.append(fn.text.decode())
 
     return functions, calls
 
@@ -54,21 +56,23 @@ def build_call_graph(directory, ignores=[]):
     for filename in os.listdir(directory):
         if filename.endswith(".c") and not any(filename.endswith(n) for n in ignores):
             path = os.path.join(directory, filename)
-
-            funcs, calls = extract_functions_and_calls(path)
-
-            file_functions[filename] = {
-                "functions": funcs,
-                "calls": calls
-            }
+            name = os.path.split(path)[-1]
+            with open(path, "rb") as f:
+                code = f.read()
+                tree = parser.parse(code)
+                funcs, calls = get_functions_and_calls(tree)
+                file_functions[name] = {
+                    "functions": funcs,
+                    "calls": calls
+                }
 
 
     # Map function -> file
-    function_to_file = {}
+    function_to_file = defaultdict(list)
 
     for filename, data in file_functions.items():
         for func in data["functions"]:
-            function_to_file[func] = filename
+            function_to_file[func].append(filename)
 
 
     # Create graph
@@ -78,15 +82,10 @@ def build_call_graph(directory, ignores=[]):
     for filename in file_functions:
         G.add_node(filename)
 
-
     # Add edges
     for src_file, data in file_functions.items():
-
         for called_func in data["calls"]:
-
-            if called_func in function_to_file:
-                dst_file = function_to_file[called_func]
-
+            for dst_file in function_to_file[called_func]:
                 # Ignore self calls
                 if src_file != dst_file:
                     G.add_edge(src_file, dst_file)
@@ -149,7 +148,7 @@ def visualize_graph(G):
 if __name__ == "__main__":
 
     c_directory = "../redis"   # directory containing .c files
-    ignores = ["Redis.c", "redis-cli.c", "linenoise.c", "redis-check-dump.c", "redis-check-aof.c", "lzf_d.c", "lzf_c.c"]
+    ignores = ["Redis.c", "redis-cli.c", "linenoise.c", "redis-check-dump.c", "redis-check-aof.c"]
 
     graph = build_call_graph(c_directory, ignores)
 
