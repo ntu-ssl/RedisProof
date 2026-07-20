@@ -73,8 +73,7 @@ The blue nodes meant to represent top level API functions, i.e., functions that 
 
 ## Modules
 Currently focusing on dictionary module  
-<img width="1023" height="726" alt="image" src="https://github.com/user-attachments/assets/98b589d6-2cd4-43f4-8521-ba88fc7ef72b" />
-
+<img width="1023" height="726" alt="image" src="https://github.com/user-attachments/assets/e9764801-a7e2-4865-a369-d426de044157" />
 
 ## Ranking Functions
 ### dict.c
