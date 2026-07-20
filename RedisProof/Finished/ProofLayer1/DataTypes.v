@@ -49,3 +49,4 @@ Notation "_a '.[memory].[offset]' ':<' _b" := (update_RData_memory_offset _a _b)
 Definition update_RData_memory_data(_a: RData) _b :=
   update_RData_memory _a ((_a.(memory)).[data] :< _b).
 Notation "_a '.[memory].[data]' ':<' _b" := (update_RData_memory_data _a _b) (at level 1).
+

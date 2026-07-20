@@ -100,7 +100,6 @@ End GlobalDefs.
 #[global] Hint Unfold v_12_1_fptr_dictRehash_spec: spec.
 #[global] Hint Unfold v_1_1_fptr__dictKeyIndex_spec: spec.
 
-
 #[global] Hint Unfold
   update_Memory_offset
   update_Memory_data
@@ -115,6 +114,7 @@ Ltac simpl_RData := autounfold with update_RData; simpl.
 
 Notation "x <=d y" := (Z_le_dec x y) (at level 70, no associativity) : Z_scope.
 Notation "x >=d y" := (Z_ge_dec x y) (at level 70, no associativity) : Z_scope.
+Notation "x =d y" := (Z.eq_dec x y) (at level 70, no associativity) : Z_scope.
 
 Notation "'relyp' P ; F" :=
   (match prop P with
@@ -122,3 +122,4 @@ Notation "'relyp' P ; F" :=
    | right _ => None
    end)
   (at level 200, P at level 100, F at level 200).
+

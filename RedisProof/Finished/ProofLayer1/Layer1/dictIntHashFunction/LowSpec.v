@@ -1,3 +1,4 @@
+Require Import Bottom.Spec.
 Require Import CommonDeps.
 Require Import DataTypes.
 Require Import GlobalDefs.
@@ -5,67 +6,11 @@ Require Import GlobalDefs.
 Local Open Scope string_scope.
 Local Open Scope Z_scope.
 
-(* loop fix *)
-Require Import Coq.Program.Wf.
-Require Import Coq.ZArith.ZArith.
-
-Section Layer1_Spec.
+Section Layer1_dictIntHashFunction_LowSpec.
 
   Context `{int_ptr: IntPtrCast}.
 
-  Definition _dictFree_spec (ptr: Ptr) (st: RData) : (option RData) :=
-    if ((ptr.(pbase)) =s ("memory"))
-    then (Some (st.[memory].[data] :< (((st.(memory)).(data)) # (ptr.(poffset)) == None)))
-    else (Some st).
-
-  Definition _dictAlloc_spec (size: Z) (st: RData) : (option (Ptr * RData)) :=
-    let offset := ((st.(memory)).(offset)) in
-    (Some ((mkPtr "memory" offset), (st.[memory].[offset] :< (offset + (size))))).
-
-  Definition _dictReset_spec (ht: Ptr) (st: RData) : (option RData) :=
-    if ((ht.(pbase)) =s ("memory"))
-    then (
-      (Some (st.[memory].[data] :<
-        ((((((st.(memory)).(data)) # (ht.(poffset)) == (Some 0)) # ((ht.(poffset)) + (8)) == (Some 0)) # ((ht.(poffset)) + (16)) == (Some 0)) #
-          ((ht.(poffset)) + (24)) ==
-          (Some 0)))))
-    else (
-      if ((ht.(pbase)) =s ("dict_can_resize"))
-      then (Some (st.[dict_can_resize] :< 0))
-      else (Some bad_st)).
-
-  (* Fixpoint _dictNextPower_loop_0 (size: Z) (i_0: Z) (arg_dummy0: Z) (arg_dummy1: Z) (st: RData) : (option (Z * Z * Z * Z * RData)) :=
-    if ((i_0 - (size)) >=? (0))
-    then (Some (size, i_0, i_0, 0, st))
-    else (_dictNextPower_loop_0 size (i_0 * (2)) arg_dummy0 arg_dummy1 st). *)
-
-  Program Fixpoint _dictNextPower_loop_0
-        (size i_0 arg_dummy0 arg_dummy1 : Z)
-        (st : RData)
-  {measure (Z.to_nat (size - i_0))}
-  : option (Z * Z * Z * Z * RData) :=
-    relyp (i_0 > 0);
-      match i_0 >=d size with
-      | left _   => Some (size, i_0, i_0, 0, st)
-      | right Hlt => _dictNextPower_loop_0 size (i_0 * 2) arg_dummy0 arg_dummy1 st
-      end.
-  Next Obligation.
-    (* Goal: Z.to_nat (size - i_0 * 2) < Z.to_nat (size - i_0)
-      Context: ~ i_0 <= 0       => i_0 > 0
-               ~ i_0 >= size    => i_0 < size  *)
-    lia.
-  Defined.
-
-  Definition _dictNextPower_spec (size: Z) (st: RData) : (option (Z * RData)) :=
-    if (size >=? (9223372036854775807))
-    then (Some (9223372036854775807, st))
-    else (
-      match ((_dictNextPower_loop_0 size 4 0 0 st)) with
-      | (Some (size_after, i_0_after, i_0, v_0, st_0)) => (Some (i_0, st_0))
-      | None => None
-      end).
-
-  Definition dictIntHashFunction_spec (key: Z) (st: RData) : (option (Z * RData)) :=
+  Definition dictIntHashFunction_spec_low (key: Z) (st: RData) : (option (Z * RData)) :=
     (Some (
       (((((((((key + ((((key << (15)) |' ((-1))) - (((key << (15)) & ((-1))))))) |' (((key + ((((key << (15)) |' ((-1))) - (((key << (15)) & ((-1))))))) >> (10)))) -
         (((key + ((((key << (15)) |' ((-1))) - (((key << (15)) & ((-1))))))) & (((key + ((((key << (15)) |' ((-1))) - (((key << (15)) & ((-1))))))) >> (10)))))) +
@@ -352,50 +297,6 @@ Section Layer1_Spec.
       st
     )).
 
-  Definition dictIdentityHashFunction_spec (key: Z) (st: RData) : (option (Z * RData)) :=
-    (Some (key, st)).
+End Layer1_dictIntHashFunction_LowSpec.
 
-  (* Fixpoint dictGenHashFunction_loop_0 (buf_addr_0: Ptr) (len_addr_0: Z) (hash_0: Z) (arg_dummy0: Z) (arg_dummy1: Z) (st: RData) : (option (Ptr * Z * Z * Z * Z * RData)) :=
-    if (len_addr_0 <>? (0))
-    then (
-      when v_0, st_0 == ((load_RData 1 buf_addr_0 st));
-      (dictGenHashFunction_loop_0 (ptr_offset buf_addr_0 1) (len_addr_0 + ((-1))) (((hash_0 << (5)) + (hash_0)) + (v_0)) arg_dummy0 arg_dummy1 st_0))
-    else (Some (buf_addr_0, len_addr_0, hash_0, hash_0, 0, st)). *)
-
-  Program Fixpoint dictGenHashFunction_loop_0
-        (buf_addr_0 : Ptr)
-        (len_addr_0 hash_0 arg_dummy0 arg_dummy1 : Z)
-        (st : RData)
-  {measure (Z.to_nat (len_addr_0))}
-  : (option (Ptr * Z * Z * Z * Z * RData)) :=
-    relyp (len_addr_0 >= 0);
-      match len_addr_0 =d 0 with
-      | left _   => Some (buf_addr_0, len_addr_0, hash_0, hash_0, 0, st)
-      | right Hlt =>
-        (when v_0, st_0 == ((load_RData 1 buf_addr_0 st));
-        (dictGenHashFunction_loop_0 (ptr_offset buf_addr_0 1) (len_addr_0 + ((-1))) (((hash_0 << (5)) + (hash_0)) + (v_0)) arg_dummy0 arg_dummy1 st_0))
-      end.
-  Next Obligation.
-    (* Goal: Z.to_nat (size - i_0 * 2) < Z.to_nat (size - i_0)
-      Context: ~ i_0 <= 0       => i_0 > 0
-               ~ i_0 >= size    => i_0 < size  *)
-    lia.
-  Defined.
-
-  Definition dictGenHashFunction_spec (buf: Ptr) (len: Z) (st: RData) : (option (Z * RData)) :=
-    match ((dictGenHashFunction_loop_0 buf len 5381 0 0 st)) with
-    | (Some (buf_addr_0_after, len_addr_0_after, hash_0_after, hash_0, v_1, st_0)) => (Some (hash_0, st_0))
-    | None => None
-    end.
-
-End Layer1_Spec.
-
-#[global] Hint Unfold _dictFree_spec: spec.
-#[global] Hint Unfold _dictAlloc_spec: spec.
-#[global] Hint Unfold _dictReset_spec: spec.
-#[global] Hint Unfold _dictNextPower_loop_0: spec.
-#[global] Hint Unfold _dictNextPower_spec: spec.
-#[global] Hint Unfold dictIntHashFunction_spec: spec.
-#[global] Hint Unfold dictIdentityHashFunction_spec: spec.
-#[global] Hint Unfold dictGenHashFunction_loop_0: spec.
-#[global] Hint Unfold dictGenHashFunction_spec: spec.
+#[global] Hint Unfold dictIntHashFunction_spec_low: spec.
