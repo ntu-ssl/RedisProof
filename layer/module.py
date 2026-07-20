@@ -85,10 +85,12 @@ def build_call_graph(directory, ignores=[]):
     # Add edges
     for src_file, data in file_functions.items():
         for called_func in data["calls"]:
+            # Ignore self calls
+            if src_file in function_to_file[called_func]:
+                continue
+
             for dst_file in function_to_file[called_func]:
-                # Ignore self calls
-                if src_file != dst_file:
-                    G.add_edge(src_file, dst_file)
+                G.add_edge(src_file, dst_file)
 
 
     return G
@@ -148,7 +150,7 @@ def visualize_graph(G):
 if __name__ == "__main__":
 
     c_directory = "../redis"   # directory containing .c files
-    ignores = ["Redis.c", "redis-cli.c", "linenoise.c", "redis-check-dump.c", "redis-check-aof.c"]
+    ignores = ["Redis.c", "redis-cli.c", "linenoise.c", "redis-check-dump.c", "redis-check-aof.c", "redis-benchmark.c"]
 
     graph = build_call_graph(c_directory, ignores)
 
