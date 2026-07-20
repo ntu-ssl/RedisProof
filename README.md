@@ -73,7 +73,8 @@ The blue nodes meant to represent top level API functions, i.e., functions that 
 
 ## Modules
 Currently focusing on dictionary module  
-$${\color{red}TODO: \space \text{organize the c files into multiple modules}}$$
+<img width="1023" height="726" alt="image" src="https://github.com/user-attachments/assets/98b589d6-2cd4-43f4-8521-ba88fc7ef72b" />
+
 
 ## Ranking Functions
 ### dict.c
@@ -95,8 +96,8 @@ $${\color{red}TODO: \space \text{organize the c files into multiple modules}}$$
     potential to use prng to generate a pseudo random delay here but it'll make the loop termination proof unecessarily harder
 
 ## Progress
-Total loc: 17443
-Total functions: 613
+Total loc: 18274
+Total functions: 659
 - redis-cli.c
     loc: 517  | functions: 17
 - linenoise.c
