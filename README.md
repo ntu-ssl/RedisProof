@@ -77,20 +77,23 @@ Currently focusing on dictionary module
 
 ## Ranking Functions
 ### dict.c
-- `_dictNextPower` 
-    log2 based ranking function, hard to reason with in proof, maybe find another way to represent it
-- `dictGenHashFunction`
-    simple while loop
-- `dictRehash` 
+- `_dictNextPower`
+    Gets the first power of 2 that's greater or equal to `size`.  
+    Decreasing arugment (`size - i`) and condition `i > 0` to prove loop termination
+- `dictGenHashFunction`  
+    Simple while loop.  
+    Decreasing argument (`len`) and condition `len > 0`.
+- `dictClear`  
+- `dictRehash`  
     potentially unbounded pointer based loop condition
-- `dictFind`
+- `dictFind`  
     potentially unbounded pointer based loop condition)
     nested loop problem, explained in more detail in {insert section}
-- `dictGenericDelete`
+- `dictGenericDelete`  
     potentially unbounded pointer based loop condition       nested loop problem
-- `dictGetRandomKe`
+- `dictGetRandomKe`  
     potentially unbounded pointer based loop condition
-- `dictRehashMilliseconds`
+- `dictRehashMilliseconds`  
     RData can't really track time, so right now each call to get the time just increments time by 10ms
     potential to use prng to generate a pseudo random delay here but it'll make the loop termination proof unecessarily harder
 
